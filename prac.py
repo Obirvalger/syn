@@ -193,8 +193,6 @@ for i in xrange(len(nodeDB)):
         g[name] = gain(nodeDB[name])
     freeCells -= {val.name}
 
-modCells = modCells[:gmax + 1]
-
 for x in nodeDB.values():
     if x.name in modCells[gmax + 1:]:
         x.pos ^= 1
