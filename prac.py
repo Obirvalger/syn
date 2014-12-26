@@ -145,22 +145,60 @@ def area(A):
 
     return s
     
-vmax = max([x.xSize for x in nodeDB.values() if not x.terminal])
-Amin = area(A) + area(B) - vmax
+vmax = max([x.xSize * x.ySize for x in nodeDB.values() if not x.terminal])
+Amin = area(A) - vmax
 Amax = Amin + 2 * vmax
 
 g = {}
 
-for name, val in nodeDB.items():
+def gain(c):
     FS, TE = 0, 0
-    for net in val.nets:
+    for net in c.nets:
         netpos = set([nodeDB[x].pos for x in net])
         if len(netpos) == 1:
-            if netpos.pop() == val.pos:
+            if netpos.pop() == c.pos:
                 TE += 1
             else:
                 FS += 1
-    g[name] = FS - TE
+    return FS - TE
+
+for name, val in nodeDB.items():
+    g[name] = gain(val)
+
+def dslice(d, l): return dict(filter(lambda item: item[0] in l, d.iteritems()))
+
+freeCells = set([x.name for x in nodeDB.values() if not x.terminal])
+gmax = -1
+modCells = []
+for i in xrange(len(nodeDB)):
+    #~ print max(dslice(g, freeCells).values())
+    val = nodeDB[dslice(g, freeCells).keys()[numpy.argmax(dslice(g, freeCells).values())]]
+    badCells = set()
+    #~ print area(A - {val.name}) in xrange(Amin, Amax + 1)
+    while (area(A - {val.name}) not in xrange(Amin, Amax + 1) or len(freeCells - badCells) == 0):
+        #print val.pos
+        badCells |= {val.name}
+        tmp = freeCells - badCells
+        val = nodeDB[dslice(g, tmp).keys()[numpy.argmax(dslice(g, tmp).values())]]
+    if (len(freeCells - badCells) == 0):
+        break
+    #~ print val.name
+    if (g[val.name] > gmax):
+        gmax = g[val.name]
+    modCells.append(val.name)
+    val.pos ^= 1
+    A ^= {val.name}
+    B ^= {val.name}
+    for name in set([y for x in val.nets for y in x]):
+        g[name] = gain(nodeDB[name])
+    freeCells -= {val.name}
+
+modCells = modCells[:gmax + 1]
+
+for x in nodeDB.values():
+    if x.name in modCells[gmax + 1:]:
+        x.pos ^= 1
+
 
 print "Time: {}".format(clock() - beginTime)
 
