@@ -24,11 +24,13 @@ long_line_column=80
 [files]
 current_page=5
 FILE_NAME_0=3510;Perl;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fhpwl.pl;0;4
-FILE_NAME_1=138;None;0;EUTF-8;1;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fadaptec2.nodes;0;4
+FILE_NAME_1=9127;None;0;EUTF-8;1;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fadaptec2.nodes;0;4
 FILE_NAME_2=0;None;0;EUTF-8;1;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fadaptec2.nets;0;4
 FILE_NAME_3=190;Perl;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fadaptec2.pl;0;4
-FILE_NAME_4=1167;Scala;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fadaptec2.scl;0;4
-FILE_NAME_5=3708;Python;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fprac.py;0;4
+FILE_NAME_4=1101;Scala;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fadaptec2.scl;0;4
+FILE_NAME_5=5619;Python;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2Fprog%2Fprac%2Fsyn%2Fprac.py;0;4
+FILE_NAME_6=7412;Python;0;EUTF-8;0;1;0;%2Fhome%2Fogneslav%2FDownloads%2Fplacement_scheme%2FGlobalPlacer.py;0;4
+FILE_NAME_7=894;Python;0;EUTF-8;0;1;0;%2Ftmp%2Fipython_edit_GMsZ2R.py;0;4
 
 [VTE]
 last_dir=/home/ogneslav/prog/prac/syn
